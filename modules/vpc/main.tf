@@ -149,12 +149,12 @@ resource "aws_route_table" "private_route_table" {
   }
 }
 
-resource "aws_route_table_association" "privrt_asscociation_1" {
+resource "aws_route_table_association" "private_asscociation_1" {
   subnet_id      = aws_subnet.private_subnet_1.id
   route_table_id = aws_route_table.private_route_table.id
 }
 
-resource "aws_route_table_association" "privrt_asscociation_2" {
+resource "aws_route_table_association" "private_asscociation_2" {
   subnet_id      = aws_subnet.private_subnet_2.id
   route_table_id = aws_route_table.private_route_table.id
 }
