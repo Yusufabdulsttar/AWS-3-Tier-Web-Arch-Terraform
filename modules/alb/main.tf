@@ -44,7 +44,7 @@ resource "aws_lb_target_group" "alb-web_target_group" {
 // ALB for App Tier
 resource "aws_lb" "ALB-App" {
   name               = "ALB-App"
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [var.alb_app_security_group_id]
   subnets            = [var.private_subnet_1_id, var.private_subnet_2_id]
