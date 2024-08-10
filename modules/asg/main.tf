@@ -3,7 +3,11 @@ resource "aws_launch_template" "template-web" {
   name_prefix     = var.launch-template-web-name
   image_id        = var.image-id
   instance_type   = var.instance-type
-  user_data = filebase64("data.sh")
+  //user_data = filebase64("data.sh")
+  user_data = base64encode(templatefile("./user-data/user-data-presentation-tier.sh", {
+    application_load_balancer = var.Alb_web_dns_name,
+    region                    = var.region
+  }))
  
   network_interfaces {
     device_index    = 0
@@ -39,7 +43,16 @@ resource "aws_launch_template" "template-app" {
   name_prefix   = var.launch-template-app-name
   image_id      = var.image-id
   instance_type = var.instance-type
-  user_data = filebase64("data.sh")
+  //user_data = filebase64("data.sh")
+
+  user_data = base64encode(templatefile("./user-data/user-data-application-tier.sh", {
+    rds_hostname  = var.rds_address,
+    rds_username  = var.rds_db_admin,
+    rds_password  = var.rds_db_password,
+    rds_port      = 3306,
+    rds_db_name   = var.db_name,
+    region        = var.region
+  }))
 
   network_interfaces {
     device_index    = 0

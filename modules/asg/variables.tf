@@ -1,3 +1,9 @@
+variable "region" {
+}
+
+variable "Alb_web_dns_name" {
+}
+
 variable "launch-template-web-name" {
   type        = string
 }
@@ -46,3 +52,18 @@ variable "private_subnet_2_id" {
   type        = string
 }
 
+variable "rds_address" {
+
+}
+
+variable "rds_db_admin" {
+ 
+}
+
+variable "rds_db_password" {
+
+}
+
+variable "db_name" {
+
+}

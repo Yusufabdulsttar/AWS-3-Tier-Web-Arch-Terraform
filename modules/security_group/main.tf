@@ -46,7 +46,6 @@ resource "aws_security_group" "alb_web_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-
   egress {
     from_port   = 0
     to_port     = 0
@@ -106,7 +105,6 @@ resource "aws_security_group" "alb_app_security_group" {
     protocol    = "tcp"
     security_groups = [aws_security_group.asg_security_group_web.id]
   }
-
 
   egress {
     from_port   = 0
