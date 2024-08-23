@@ -15,12 +15,12 @@ connection.query(`use ${process.env.RDS_DB_NAME};`)
 let app = express()
 
 app.get('/', async (req, res) => {
-  res.send({ message: 'hello world'})
+  res.send({ message: 'Hello world'})
 })
 
 app.get('/init', async (req, res) => {
   connection.query('CREATE TABLE IF NOT EXISTS users (id INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY, lastname VARCHAR(40), firstname VARCHAR(40), email VARCHAR(30));');
-  connection.query('INSERT INTO users (lastname, firstname, email) VALUES ( "Tony", "Sam", "tonysam@whatever.com"), ( "Doe", "John", "john.doe@whatever.com" );');
+  connection.query('INSERT INTO users (lastname, firstname, email) VALUES ( "Yusuf", "Abdulsttar", "yusufabdulsttar@whatever.com"), ( "Engy", "mahmoud", "engy@whatever.com" ), ( "Ibrahim", "ibrahim", "ibrahim@whatever.com" );');
   res.send({ message: "init step done" })
 })
 

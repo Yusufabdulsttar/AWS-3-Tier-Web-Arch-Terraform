@@ -57,10 +57,10 @@ module "asg" {
   public_subnet_2_id       = module.vpc.public_subnet_2_id
   private_subnet_1_id      = module.vpc.private_subnet_1_id
   private_subnet_2_id      = module.vpc.private_subnet_2_id
-  Alb_web_dns_name = module.alb.alb_dns_name
-  region = var.region
-  rds_address = module.rds.rds_address
-  db_name = module.rds.rds_db_name
-  rds_db_admin = module.rds.db_username
-  rds_db_password = module.rds.db_password
+  alb_App_dns_name         = module.alb.alb_App_dns_name
+  region                   = var.region
+  rds_address              = module.rds.rds_address
+  db_name                  = module.rds.rds_db_name
+  rds_db_admin             = module.rds.db_username
+  rds_db_password          = module.rds.db_password
 }

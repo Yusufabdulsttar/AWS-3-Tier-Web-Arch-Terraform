@@ -6,18 +6,20 @@ const PORT = process.env.PORT || 80
 let app = express()
 const APPLICATION_LOAD_BALANCER = process.env.APPLICATION_LOAD_BALANCER;
 
+import { exec } from 'child_process';
+
+// GET IP
 app.get('/', async (req, res) => {
-  fetch('http://169.254.169.254/latest/meta-data/hostname').then(async(response) => {
-    const hostname = await response.text();
-    res.send(`Hello from ${hostname}`)
-  })
+  exec('wget -qO- ifconfig.me', (error, stdout) => {
+    res.send(`Hello from ${stdout.trim()}`);
+  });
 })
 
 app.get('/init', async (req, res) => {
   fetch(`http://${APPLICATION_LOAD_BALANCER}/init`).then(async (response) => {
     const data = await response.json();
     res.send(data)
-  })
+  })	
 })
 
 app.get('/users', async (req, res) => {

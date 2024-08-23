@@ -1,7 +1,7 @@
 variable "region" {
 }
 
-variable "Alb_web_dns_name" {
+variable "alb_App_dns_name" {
 }
 
 variable "launch-template-web-name" {
