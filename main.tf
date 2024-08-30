@@ -18,7 +18,7 @@ module "security_group" {
   vpc_id = module.vpc.vpc_id
 }
 
-# Module for RDS PostgreSQL setup
+# Module for RDS setup
 module "rds" {
   source               = "./modules/rds"
   db_username          = "admin"
