@@ -25,10 +25,26 @@ The project is organized into several Terraform modules to facilitate modularity
 - [Terraform](https://www.terraform.io/downloads.html) installed on your local machine
 - AWS account with appropriate permissions
 - [AWS CLI](https://aws.amazon.com/cli/) configured with your AWS credentials
+- Jenkins installed with appropriate plugins for Terraform and AWS for Automated Deployment
 
-## Getting Started
+## Automated Deployment with Jenkins
 
-Follow these steps to deploy the AWS 3-Tier Web Architecture using Terraform:
+The project includes a Jenkins pipeline for automating the deployment and teardown of the infrastructure. To use Jenkins for managing the infrastructure, follow these steps:
+
+1. **Create a Jenkins Pipeline Job**
+
+    Set up a new pipeline job in Jenkins and configure it to use the `Jenkinsfile` provided in the repository.
+
+2. **Run the Pipeline**
+
+    - **To Apply the Infrastructure**: Run the Jenkins pipeline and select the apply stage to provision the infrastructure.
+    - **To Destroy the Infrastructure**: Run the Jenkins pipeline and select the destroy stage to tear down the infrastructure.
+
+The Jenkins pipeline automates the Terraform commands, including `init`, `plan`, `apply`, and `destroy`.
+
+## Manual Deployment
+
+To manually deploy the AWS 3-Tier Web Architecture using Terraform, follow these steps:
 
 ### 1. Clone the Repository
 
@@ -36,25 +52,30 @@ Follow these steps to deploy the AWS 3-Tier Web Architecture using Terraform:
 git clone https://github.com/Yusufabdulsttar/AWS-3-Tier-Web-Arch-Terraform.git
 cd AWS-3-Tier-Web-Arch-Terraform
 ```
+
 ### 2. Initialize Terraform
+
 Initialize the Terraform configuration by downloading the required providers.
 ```bash
 terraform init
 ```
 
 ### 3. Plan the Infrastructure
+
 Review the changes Terraform will apply.
 ```bash
 terraform plan
 ```
 
 ### 4. Apply the Configuration
+
 Deploy the infrastructure to AWS. You will need to confirm the action.
 ```bash
 terraform apply
 ```
 
 ### 5. Access the Application
+
 Once the deployment is complete, you can access your web application through the DNS name provided by the ALB in the web tier.
 
 #### Endpoints
