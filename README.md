@@ -1,6 +1,6 @@
 # AWS 3-Tier Web Architecture with Terraform
 
-This project demonstrates the deployment of a 3-Tier Web Architecture on AWS using Terraform. The architecture spans two Availability Zones (AZs) and includes the following components:
+This project demonstrates the deployment of a 3 Tier Web Architecture on AWS using Terraform. The architecture spans two Availability Zones (AZs) and includes the following components:
 
 1. **Web Tier**: Consists of an Application Load Balancer (ALB) and an Auto Scaling Group (ASG) to manage web servers.
 2. **App Tier**: Contains an internal ALB and an ASG to handle application servers.
